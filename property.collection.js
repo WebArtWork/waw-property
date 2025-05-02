@@ -4,9 +4,14 @@ module.exports = async function (waw) {
 		description: String,
 		address: String,
 		type: String,
+		buildingtype: String,
 		area: Number,
 		rooms: Number,
 		floor: Number,
+		renovation: String,
+		appliances: String,
+		utilities: String,
+		nearby: String,
 		price: Number,
 
 		url: { type: String, sparse: true, trim: true, unique: true },
@@ -37,11 +42,21 @@ module.exports = async function (waw) {
 
 		this.type = obj.type;
 
+		this.buildingtype = obj.buildingtype;
+
 		this.area = obj.area;
 
 		this.rooms = obj.rooms;
 		
 		this.floor = obj.floor;
+
+		this.renovation = obj.renovation;
+
+		this.appliances = obj.appliances;
+
+		this.utilities = obj.utilities;
+
+		this.nearby = obj.nearby;
 
 		this.price = obj.price;
 

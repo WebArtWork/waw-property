@@ -2,7 +2,10 @@ module.exports = async function (waw) {
 	const Schema = waw.mongoose.Schema({
 		name: String,
 		description: String,
-		address: String,
+		quantity: Number,
+		supplier: String,
+		price: Number,
+		
 		url: { type: String, sparse: true, trim: true, unique: true },
 		data: {},
 		author: {
@@ -25,8 +28,13 @@ module.exports = async function (waw) {
 
 		this.name = obj.name;
 		
-
 		this.description = obj.description;
+
+		this.quantity = obj.quantity;
+
+		this.supplier = obj.supplier;
+
+		this.price = obj.price;
 
 		this.data = obj.data;
 

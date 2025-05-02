@@ -1,7 +1,10 @@
 module.exports = async function (waw) {
 	const Schema = waw.mongoose.Schema({
-		name: String,
-		description: String,
+		fullname: String,
+		position: String,
+		experience: Number,
+		task: String,
+		status: String,
 		url: { type: String, sparse: true, trim: true, unique: true },
 		data: {},
 		author: {
