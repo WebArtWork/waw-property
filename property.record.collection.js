@@ -9,6 +9,15 @@ module.exports = async function (waw) {
 		responsible: String,
 		expenses: Number,
 		comments: String,
+		materials: string,
+		photos: string,
+		price: number,
+		service: string,
+		materials: string,
+		price: number,
+		seller:
+		buyer:
+		price (possitive value)
 		
 		url: { type: String, sparse: true, trim: true, unique: true },
 		data: {},
