@@ -1,29 +1,37 @@
 module.exports = async function (waw) {
 	const Schema = waw.mongoose.Schema({
-		name: String,
+		//?
+		//name: String,
+		//description: String,
+		//responsible: String,
+		//comments: String,
+
+
 		type: {
 			type: String,
-			enum: ['sell / buy payment', 'service', 'materials', 'rent payment', 'incident']
+			enum: [ 'Utility bill','Change owner', 'Service', 'Materials', 'Rent bill', 'Incident']
 		},
-		description: String,
-		responsible: String,
-		expenses: Number,
-		comments: String,
-		materials: string,
-		photos: string,
-		price: number,
-		service: string,
-		materials: string,
-		price: number,
-		seller:
-		buyer:
-		price (possitive value)
+		price: Number,
+		materials: [String],
+		photos: [String],
+		service: String,
+		incident: String,
+		rent: String,
+		
 		
 		url: { type: String, sparse: true, trim: true, unique: true },
 		data: {},
 		author: {
 			type: waw.mongoose.Schema.Types.ObjectId,
 			ref: "User",
+		},
+		seller: {
+			type: waw.mongoose.Schema.Types.ObjectId,
+			ref: "Seller",
+		},
+		buyer: {
+			type: waw.mongoose.Schema.Types.ObjectId,
+			ref: "Buyer",
 		},
 		moderators: [
 			{
@@ -37,19 +45,31 @@ module.exports = async function (waw) {
 	Schema.methods.create = function (obj, user, waw) {
 		this.author = user._id;
 
+		this.seller = user._id;
+
+		this.buyer = user._id;
+		
 		this.moderators = [user._id];
 
-		this.name = obj.name;
+		//this.name = obj.name;
+		//this.description = obj.description;
+		//this.responsible = obj.responsible;
+		//this.comments = obj.comments;
+
 
 		this.type = obj.type;
+		
+		this.price = obj.price;
+		
+		this.materials = obj.materials;
 
-		this.description = obj.description;
+		this.photos = obj.photos;
 
-		this.responsible = obj.responsible;
+		this.service = obj.service;
 
-		this.expenses = obj.expenses;
+		this.incident = obj.incident;
 
-		this.comments = obj.comments;
+		this.rent = obj.rent;
 
 		this.data = obj.data;
 
