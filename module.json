@@ -42,6 +42,14 @@
 			"delete": [""]
 		},
 		{
+			"name": "propertytask",
+			"unique": ["url"],
+			"update": {
+			  "keys": ["name", "description", "deadline", "address",  "data"]
+			},
+			"delete": [""]
+		  },
+		{
 			"name": "propertyworker",
 			"unique": ["url"],
 			"update": {

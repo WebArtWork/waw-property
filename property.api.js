@@ -28,6 +28,7 @@ module.exports = async (waw) => {
 	waw.crud("propertymaterial", crudConfig);
 	waw.crud("propertyprovider", crudConfig);
 	waw.crud("propertyservice", crudConfig);
+	waw.crud("propertytask", crudConfig);
 	waw.crud("propertyworker", crudConfig);
 	waw.crud("propertytrade", crudConfig);
 };
