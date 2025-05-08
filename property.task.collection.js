@@ -19,7 +19,7 @@ module.exports = async function (waw) {
 			type: waw.mongoose.Schema.Types.ObjectId,
 			ref: "User",
 		},
-		createdBy: {
+		client: {
 			type: waw.mongoose.Schema.Types.ObjectId,
 			ref: "User",
 		},
