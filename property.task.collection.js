@@ -56,7 +56,15 @@ module.exports = async function (waw) {
 		this.assigned = obj.assigned;
 		
 		this.deadline = obj.deadline;
+
+		this.endTime = obj.endTime;
+
+		this.startTime = obj.startTime;
+
+		this.longitude= obj.longitude;
 		
+		this.latitude = obj.latitude;
+
 		this.address = obj.address;
 
 		this.data = obj.data;

@@ -86,7 +86,20 @@
 			"name": "propertytask",
 			"unique": ["url"],
 			"update": {
-				"keys": ["name", "description", "deadline", "address", "data"]
+				"keys": [
+					"name",
+					"description",
+					"deadline",
+					"address",
+					"data",
+					"category",
+					"assigned",
+					"client",
+					"latitude",
+					"longitude",
+					"startTime",
+					"endTime"
+				]
 			},
 			"delete": [""]
 		},
