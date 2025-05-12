@@ -45,6 +45,8 @@ module.exports = async function (waw) {
 
 		this.assigned = user._id;
 
+		this.category = obj.category;
+
 		this.moderators = [user._id];
 
 		this.name = obj.name;
