@@ -1,15 +1,20 @@
 {
-	{
-		"name": "Property",
-"repo": "https://github.com/WebArtWork/waw-property.git",
-  "crud": []
-	
-	}
+	"name": "Property",
+	"repo": "https://github.com/WebArtWork/waw-property.git",
+	"crud": [
 		{
 			"name": "property",
 			"unique": ["url"],
 			"update": {
-				"keys": ["name", "description", "address","type", "area","price","data"]
+				"keys": [
+					"name",
+					"description",
+					"address",
+					"type",
+					"area",
+					"price",
+					"data"
+				]
 			},
 			"delete": [""]
 		},
@@ -17,7 +22,15 @@
 			"name": "propertyrecord",
 			"unique": ["url"],
 			"update": {
-				"keys": ["name", "description", "address","type", "area","price","data"]
+				"keys": [
+					"name",
+					"description",
+					"address",
+					"type",
+					"area",
+					"price",
+					"data"
+				]
 			},
 			"delete": [""]
 		},
@@ -25,7 +38,15 @@
 			"name": "propertymaterial",
 			"unique": ["url"],
 			"update": {
-				"keys": ["name", "description","address","type", "area","price", "data"]
+				"keys": [
+					"name",
+					"description",
+					"address",
+					"type",
+					"area",
+					"price",
+					"data"
+				]
 			},
 			"delete": [""]
 		},
@@ -33,7 +54,15 @@
 			"name": "propertyprovider",
 			"unique": ["url"],
 			"update": {
-				"keys": ["name", "description","address","type", "area","price", "data"]
+				"keys": [
+					"name",
+					"description",
+					"address",
+					"type",
+					"area",
+					"price",
+					"data"
+				]
 			},
 			"delete": [""]
 		},
@@ -41,7 +70,15 @@
 			"name": "propertyservice",
 			"unique": ["url"],
 			"update": {
-				"keys": ["name", "description", "address","type", "area","price","data"]
+				"keys": [
+					"name",
+					"description",
+					"address",
+					"type",
+					"area",
+					"price",
+					"data"
+				]
 			},
 			"delete": [""]
 		},
@@ -49,15 +86,23 @@
 			"name": "propertytask",
 			"unique": ["url"],
 			"update": {
-			  "keys": ["name", "description", "deadline", "address",  "data"]
+				"keys": ["name", "description", "deadline", "address", "data"]
 			},
 			"delete": [""]
-		  },
+		},
 		{
 			"name": "propertyworker",
 			"unique": ["url"],
 			"update": {
-				"keys": ["name", "description", "address","type", "area","price","data"]
+				"keys": [
+					"name",
+					"description",
+					"address",
+					"type",
+					"area",
+					"price",
+					"data"
+				]
 			},
 			"delete": [""]
 		},
@@ -65,7 +110,15 @@
 			"name": "propertytrade",
 			"unique": ["url"],
 			"update": {
-				"keys": ["name", "description", "address","type", "area","price","data"]
+				"keys": [
+					"name",
+					"description",
+					"address",
+					"type",
+					"area",
+					"price",
+					"data"
+				]
 			},
 			"delete": [""]
 		}
