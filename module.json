@@ -1,6 +1,10 @@
 {
-	"name": "Property",
-	"crud": [
+	{
+		"name": "Property",
+"repo": "https://github.com/WebArtWork/waw-property.git",
+  "crud": []
+	
+	}
 		{
 			"name": "property",
 			"unique": ["url"],
