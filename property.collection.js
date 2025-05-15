@@ -1,6 +1,15 @@
 module.exports = async function (waw) {
 	const Schema = waw.mongoose.Schema({
-		types: [String],
+		types: {
+			type: [String],
+			enum: [
+				"For Sale",
+				"Partial Sale",
+				"Monthly Rent",
+				"Daily Rent",
+				"Auction Sale",
+			],
+		},
 		name: String,
 		description: String,
 		address: String,
@@ -34,6 +43,8 @@ module.exports = async function (waw) {
 		this.author = user._id;
 
 		this.moderators = [user._id];
+
+		this.types = obj.types;
 
 		this.name = obj.name;
 

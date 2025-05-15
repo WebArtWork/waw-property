@@ -14,6 +14,10 @@ module.exports = async (waw) => {
 					query.property = req.query.property;
 				}
 
+				if (req.query.types) {
+					query.types = req.query.types;
+				}
+
 				return query;
 			},
 			sort: () => {

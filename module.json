@@ -7,6 +7,7 @@
 			"unique": ["url"],
 			"update": {
 				"keys": [
+					"types",
 					"name",
 					"description",
 					"address",
