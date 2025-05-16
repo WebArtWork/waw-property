@@ -22,6 +22,13 @@ module.exports = async function (waw) {
 		appliances: String,
 		utilities: String,
 		nearby: String,
+		parking: String,
+		sleepingPlaces: Number,
+		pets: String,
+		minimumbidincrement: Number,
+		auctionrules: String,
+		auctiondate: Number,
+		startingprice: Number,
 		price: Number,
 
 		url: { type: String, sparse: true, trim: true, unique: true },
@@ -69,6 +76,20 @@ module.exports = async function (waw) {
 		this.utilities = obj.utilities;
 
 		this.nearby = obj.nearby;
+
+		this.parking = obj.parking;
+
+		this.sleepingPlaces = obj.sleepingPlaces;
+
+		this.pets = obj.pets;
+
+		this.minimumbidincrement = obj.minimumbidincrement;
+
+		this.auctionrules = obj.auctionrules;
+
+		this.auctiondate = obj.auctiondate;
+
+		this.startingprice = obj.startingprice;
 
 		this.price = obj.price;
 
