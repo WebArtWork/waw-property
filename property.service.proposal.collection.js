@@ -1,9 +1,5 @@
 module.exports = async function (waw) {
   const Schema = waw.mongoose.Schema({
-    name: String,
-    description: String,
-    service: Number,
-    materials: [Number],
     units: [
       {
         name: String,
@@ -14,15 +10,6 @@ module.exports = async function (waw) {
     ],
     price: Number,
     data: {},
-    worker: {
-      type: waw.mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
-    contact: {
-      name: String,
-      phone: String,
-      email: String,
-    },
     author: {
       type: waw.mongoose.Schema.Types.ObjectId,
       ref: "User",
@@ -55,5 +42,8 @@ module.exports = async function (waw) {
 
     this.url = obj.url;
   };
-  return (waw.Propertyservice = waw.mongoose.model("Propertyservice", Schema));
+  return (waw.Propertyserviceproposal = waw.mongoose.model(
+    "Propertyserviceproposal",
+    Schema
+  ));
 };
