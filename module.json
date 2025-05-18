@@ -24,6 +24,7 @@
       "update": {
         "keys": ["name", "description", "images"]
       },
+      "get": ["", "public"],
       "delete": [""]
     },
     {
