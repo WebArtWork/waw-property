@@ -3,17 +3,21 @@ module.exports = async function (waw) {
     name: String,
     description: String,
     service: Number,
-    materials: [Number],
+    materials: [
+      {
+        type: waw.mongoose.Schema.Types.ObjectId,
+        ref: "Propertymaterial",
+      },
+    ],
     units: [
       {
         name: String,
         type: String,
-        use: Number,
+        quantity: Number,
         price: Number,
       },
     ],
     price: Number,
-    data: {},
     worker: {
       type: waw.mongoose.Schema.Types.ObjectId,
       ref: "User",
@@ -22,6 +26,13 @@ module.exports = async function (waw) {
       name: String,
       phone: String,
       email: String,
+    },
+    agreed: Date,
+    expected: Date,
+    deadline: Date,
+    property: {
+      type: waw.mongoose.Schema.Types.ObjectId,
+      ref: "Property",
     },
     author: {
       type: waw.mongoose.Schema.Types.ObjectId,
@@ -41,19 +52,17 @@ module.exports = async function (waw) {
 
     this.moderators = [user._id];
 
+    this.property = obj.property;
+
     this.name = obj.name;
 
     this.description = obj.description;
 
-    this.service = obj.service;
+    this.deadline = obj.deadline;
 
     this.price = obj.price;
 
-    this.contact = obj.contact;
-
-    this.data = obj.data;
-
-    this.url = obj.url;
+    this.service = obj.service;
   };
   return (waw.Propertyservice = waw.mongoose.model("Propertyservice", Schema));
 };

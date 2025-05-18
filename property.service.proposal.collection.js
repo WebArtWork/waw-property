@@ -9,7 +9,8 @@ module.exports = async function (waw) {
       },
     ],
     price: Number,
-    data: {},
+    workdays: Number,
+    deadline: Date,
     author: {
       type: waw.mongoose.Schema.Types.ObjectId,
       ref: "User",
@@ -28,19 +29,13 @@ module.exports = async function (waw) {
 
     this.moderators = [user._id];
 
-    this.name = obj.name;
-
-    this.description = obj.description;
-
-    this.service = obj.service;
+    this.units = obj.units;
 
     this.price = obj.price;
 
-    this.contact = obj.contact;
+    this.workdays = obj.workdays;
 
-    this.data = obj.data;
-
-    this.url = obj.url;
+    this.deadline = obj.deadline;
   };
   return (waw.Propertyserviceproposal = waw.mongoose.model(
     "Propertyserviceproposal",
