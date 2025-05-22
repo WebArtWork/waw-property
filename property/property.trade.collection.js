@@ -2,9 +2,10 @@ module.exports = async function (waw) {
 	const Schema = waw.mongoose.Schema({
 		name: String,
 		description: String,
-		service: String,
+		type: String,
 		price: Number,
-		contact: String,
+		contacts: String,
+		comments: String,
 		url: { type: String, sparse: true, trim: true, unique: true },
 		data: {},
 		author: {
@@ -29,15 +30,17 @@ module.exports = async function (waw) {
 
 		this.description = obj.description;
 
-		this.service = obj.service;
+		this.type = obj.type;
 
 		this.price = obj.price;
 
-		this.contact = obj.contact;
+		this.contacts = obj.contacts;
+
+		this.comments = obj.comments;
 
 		this.data = obj.data;
 
 		this.url = obj.url;
 	};
-	return (waw.Propertyservice = waw.mongoose.model("Propertyservice", Schema));
+	return (waw.Propertytrade = waw.mongoose.model("Propertytrade", Schema));
 };

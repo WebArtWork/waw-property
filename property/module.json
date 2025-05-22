@@ -20,18 +20,25 @@
 			"delete": [""]
 		},
 		{
-			"name": "propertyrecord",
-			"unique": ["url"],
+			"name": "propertyportfolio",
 			"update": {
-				"keys": [
-					"name",
-					"description",
-					"address",
-					"type",
-					"area",
-					"price",
-					"data"
-				]
+				"keys": ["name", "description", "images"]
+			},
+			"get": ["", "public"],
+			"delete": [""]
+		},
+		{
+			"name": "propertyservice",
+			"get": ["", "public"],
+			"update": {
+				"keys": ["name", "description", "price", "deadline"]
+			},
+			"delete": [""]
+		},
+		{
+			"name": "propertyserviceproposal",
+			"update": {
+				"keys": ["units", "price", "workdays", "deadline"]
 			},
 			"delete": [""]
 		},
@@ -52,23 +59,7 @@
 			"delete": [""]
 		},
 		{
-			"name": "propertyprovider",
-			"unique": ["url"],
-			"update": {
-				"keys": [
-					"name",
-					"description",
-					"address",
-					"type",
-					"area",
-					"price",
-					"data"
-				]
-			},
-			"delete": [""]
-		},
-		{
-			"name": "propertyservice",
+			"name": "propertyrecord",
 			"unique": ["url"],
 			"update": {
 				"keys": [
@@ -100,22 +91,6 @@
 					"longitude",
 					"startTime",
 					"endTime"
-				]
-			},
-			"delete": [""]
-		},
-		{
-			"name": "propertyworker",
-			"unique": ["url"],
-			"update": {
-				"keys": [
-					"name",
-					"description",
-					"address",
-					"type",
-					"area",
-					"price",
-					"data"
 				]
 			},
 			"delete": [""]

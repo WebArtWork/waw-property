@@ -1,48 +1,38 @@
 module.exports = async (waw) => {
-  const crudConfig = {
-    get: {
-      query: (req) => {
-        const query = {
-          moderators: req.user._id,
-        };
+	const crudConfig = {
+		get: {
+			query: (req) => {
+				const query = {
+					moderators: req.user._id,
+				};
 
-        if (req.query.provider) {
-          query.provider = req.query.provider;
-        }
+				if (req.query.provider) {
+					query.provider = req.query.provider;
+				}
 
-        if (req.query.property) {
-          query.property = req.query.property;
-        }
+				if (req.query.property) {
+					query.property = req.query.property;
+				}
 
-        if (req.query.types) {
-          query.types = req.query.types;
-        }
+				if (req.query.types) {
+					query.types = req.query.types;
+				}
 
-        return query;
-      },
-      sort: () => {
-        return {
-          _id: "-1",
-        };
-      },
-    },
-  };
-  waw.crud("property", crudConfig);
-  waw.crud("propertyrecord", crudConfig);
-  waw.crud("propertymaterial", crudConfig);
-  waw.crud("propertyprovider", crudConfig);
-  waw.crud("propertyservice", crudConfig);
-  waw.crud("propertytask", crudConfig);
-  waw.crud("propertyworker", crudConfig);
-  waw.crud("propertytrade", crudConfig);
-  waw.crud("propertyportfolio", {
-    get: {
-      name: "public",
-      query: (req) => {
-        return {
-          author: req.query.author,
-        };
-      },
-    },
-  });
+				return query;
+			},
+			sort: () => {
+				return {
+					_id: "-1",
+				};
+			},
+		},
+	};
+	waw.crud("property", crudConfig);
+	waw.crud("propertyrecord", crudConfig);
+	waw.crud("propertymaterial", crudConfig);
+	waw.crud("propertyprovider", crudConfig);
+	waw.crud("propertyservice", crudConfig);
+	waw.crud("propertytask", crudConfig);
+	waw.crud("propertyworker", crudConfig);
+	waw.crud("propertytrade", crudConfig);
 };

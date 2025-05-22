@@ -1,10 +1,12 @@
 module.exports = async function (waw) {
 	const Schema = waw.mongoose.Schema({
+		companyname: String,
+		contacts: String,
 		name: String,
 		description: String,
-		service: String,
-		price: Number,
-		contact: String,
+		servicetype: String,
+		experience: Number,
+		rating: Number,
 		url: { type: String, sparse: true, trim: true, unique: true },
 		data: {},
 		author: {
@@ -25,19 +27,23 @@ module.exports = async function (waw) {
 
 		this.moderators = [user._id];
 
+		this.companyname = obj.companyname;
+
+		this.contacts = obj.contacts;
+
 		this.name = obj.name;
 
 		this.description = obj.description;
 
-		this.service = obj.service;
+		this.servicetype = obj.servicetype;
+		
+		this.experience = obj.experience;
 
-		this.price = obj.price;
-
-		this.contact = obj.contact;
+		this.rating = obj.rating;
 
 		this.data = obj.data;
 
 		this.url = obj.url;
 	};
-	return (waw.Propertyservice = waw.mongoose.model("Propertyservice", Schema));
+	return (waw.Propertyprovider = waw.mongoose.model("Propertyprovider", Schema));
 };
