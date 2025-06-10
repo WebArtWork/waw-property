@@ -170,6 +170,10 @@ module.exports = async (waw) => {
 		if (job) {
 			job.worker = req.body.author;
 
+			job.start = req.body.start;
+
+			job.deadline = req.body.deadline;
+
 			await job.save();
 
 			res.json(true);
