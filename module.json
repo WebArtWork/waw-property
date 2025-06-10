@@ -45,6 +45,14 @@
 			"delete": [""]
 		},
 		{
+			"name": "propertyinvoice",
+			"update": {
+				"keys": ["description"]
+			},
+			"get": ["", "public"],
+			"delete": [""]
+		},
+		{
 			"name": "propertyjob",
 			"fetch": ["", "public"],
 			"get": ["", "public"],

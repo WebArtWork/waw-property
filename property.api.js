@@ -132,6 +132,7 @@ module.exports = async (waw) => {
 	waw.crud("propertytradeproposal", crudConfig);
 	waw.crud("propertytask", crudConfig);
 	waw.crud("propertyportfolio", crudConfig);
+	waw.crud("propertyinvoice", crudConfig);
 
 	const router = waw.router("/api/property");
 
@@ -175,6 +176,30 @@ module.exports = async (waw) => {
 			job.deadline = req.body.deadline;
 
 			job.status = "Assigned";
+
+			await job.save();
+
+			res.json(true);
+		} else {
+			res.json(false);
+		}
+	});
+
+	router.post("/status", waw.ensure, async (req, res) => {
+		const job = await waw.Propertyjob.findOne(
+			req.body.status === "Paid"
+				? {
+						author: req.user._id,
+						_id: req.body.job,
+				  }
+				: {
+						_id: req.body.job,
+						worker: req.user._id,
+				  }
+		);
+
+		if (job) {
+			job.status = req.body.status;
 
 			await job.save();
 

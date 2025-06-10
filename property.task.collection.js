@@ -1,18 +1,23 @@
 module.exports = async function (waw) {
 	const Schema = waw.mongoose.Schema({
 		name: String,
+		status: {
+			type: String,
+			enum: ["New", "Planned", "Completed", "Cancelled"],
+			default: "New",
+		},
 		category: {
 			type: String,
-			enum: ["Repair", "Inspection", "Cleaning", "Maintenance"]
+			enum: ["Repair", "Inspection", "Cleaning", "Maintenance"],
 		},
 		description: String,
 		deadline: String,
 		address: String,
 		latitude: Number,
-		longitude: Number, 
+		longitude: Number,
 		startTime: Number,
 		endTime: Number,
-		
+
 		url: { type: String, sparse: true, trim: true, unique: true },
 		data: {},
 		author: {
@@ -27,8 +32,11 @@ module.exports = async function (waw) {
 			type: waw.mongoose.Schema.Types.ObjectId,
 			ref: "User",
 		},
+		job: {
+			type: waw.mongoose.Schema.Types.ObjectId,
+			ref: "Propertyjob",
+		},
 
-		
 		moderators: [
 			{
 				type: waw.mongoose.Schema.Types.ObjectId,
@@ -39,6 +47,8 @@ module.exports = async function (waw) {
 	});
 
 	Schema.methods.create = function (obj, user, waw) {
+		this.job = obj.job;
+
 		this.author = user._id;
 
 		this.createdBy = user._id;
@@ -54,15 +64,15 @@ module.exports = async function (waw) {
 		this.description = obj.description;
 
 		this.assigned = obj.assigned;
-		
+
 		this.deadline = obj.deadline;
 
 		this.endTime = obj.endTime;
 
 		this.startTime = obj.startTime;
 
-		this.longitude= obj.longitude;
-		
+		this.longitude = obj.longitude;
+
 		this.latitude = obj.latitude;
 
 		this.address = obj.address;

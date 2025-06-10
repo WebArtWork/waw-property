@@ -14,7 +14,7 @@ module.exports = async function (waw) {
 		],
 		status: {
 			type: String,
-			enum: ["New", "Assigned", "Completed"],
+			enum: ["New", "Assigned", "Invoiced", "Paid", "Completed"],
 			default: "New",
 		},
 		units: [
