@@ -174,6 +174,8 @@ module.exports = async (waw) => {
 
 			job.deadline = req.body.deadline;
 
+			job.status = "Assigned";
+
 			await job.save();
 
 			res.json(true);
