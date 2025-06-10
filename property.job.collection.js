@@ -2,17 +2,21 @@ module.exports = async function (waw) {
 	const Schema = waw.mongoose.Schema({
 		name: String,
 		description: String,
-		service: Number,
+		services: [
+			{
+				id: Number,
+			},
+		],
+		materials: [
+			{
+				id: Number,
+			},
+		],
 		status: {
 			type: String,
 			enum: ["New", "Assigned", "Completed"],
+			default: "New",
 		},
-		materials: [
-			{
-				type: waw.mongoose.Schema.Types.ObjectId,
-				ref: "Propertymaterial",
-			},
-		],
 		units: [
 			{
 				name: String,
@@ -32,6 +36,7 @@ module.exports = async function (waw) {
 			email: String,
 		},
 		agreed: Date,
+		start: Date,
 		expected: Date,
 		deadline: Date,
 		property: {
@@ -62,14 +67,17 @@ module.exports = async function (waw) {
 
 		this.description = obj.description;
 
+		this.services = obj.services;
+
+		this.materials = obj.materials;
+
 		this.deadline = obj.deadline;
 
 		this.price = obj.price;
 
-		this.service = obj.service;
+		this.units = obj.units;
+
+		this.contact = obj.contact;
 	};
-	return (waw.Propertyservice = waw.mongoose.model(
-		"Propertyservice",
-		Schema
-	));
+	return (waw.Propertyjob = waw.mongoose.model("Propertyjob", Schema));
 };

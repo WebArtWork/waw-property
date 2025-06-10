@@ -1,12 +1,16 @@
 module.exports = async function (waw) {
 	const Schema = waw.mongoose.Schema({
-		fullname: String,
-		position: String,
-		experience: Number,
-		task: String,
-		status: String,
-		url: { type: String, sparse: true, trim: true, unique: true },
-		data: {},
+		units: [
+			{
+				name: String,
+				type: String,
+				use: Number,
+				price: Number,
+			},
+		],
+		price: Number,
+		workdays: Number,
+		deadline: Date,
 		author: {
 			type: waw.mongoose.Schema.Types.ObjectId,
 			ref: "User",
@@ -25,13 +29,16 @@ module.exports = async function (waw) {
 
 		this.moderators = [user._id];
 
-		this.name = obj.name;
+		this.units = obj.units;
 
-		this.description = obj.description;
+		this.price = obj.price;
 
-		this.data = obj.data;
+		this.workdays = obj.workdays;
 
-		this.url = obj.url;
+		this.deadline = obj.deadline;
 	};
-	return (waw.Propertyworker = waw.mongoose.model("Propertyworker", Schema));
+	return (waw.Propertytradeproposal = waw.mongoose.model(
+		"Propertytradeproposal",
+		Schema
+	));
 };

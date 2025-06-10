@@ -11,64 +11,67 @@
 					"name",
 					"description",
 					"address",
-					"type",
-					"area",
+					"propertyTypes",
+					"buildingTypes",
+					"areas",
+					"rooms",
+					"floors",
+					"renovations",
+					"appliances",
+					"utilities",
+					"nearbys",
+					"sleepingPlaces",
+					"pets",
+					"minimumbidincrement",
+					"auctionrules",
+					"auctiondate",
+					"startingprice",
 					"price",
-					"data"
+					"pricePerDay",
+					"pricePerMountly",
+					"pricePerPartial",
+					"data",
+					"thumb"
 				]
+			},
+			"delete": [""]
+		},
+		{
+			"name": "propertyportfolio",
+			"update": {
+				"keys": ["name", "description", "images"]
+			},
+			"get": ["", "public"],
+			"delete": [""]
+		},
+		{
+			"name": "propertyjob",
+			"fetch": ["", "public"],
+			"get": ["", "public"],
+			"update": {
+				"keys": [
+					"name",
+					"description",
+					"services",
+					"materials",
+					"deadline",
+					"price",
+					"units",
+					"contact"
+				]
+			},
+			"delete": [""]
+		},
+		{
+			"name": "propertyjobproposal",
+			"get": ["", "public"],
+			"update": {
+				"keys": ["units", "price", "workdays", "start", "deadline"]
 			},
 			"delete": [""]
 		},
 		{
 			"name": "propertyrecord",
-			"unique": ["url"],
-			"update": {
-				"keys": [
-					"name",
-					"description",
-					"address",
-					"type",
-					"area",
-					"price",
-					"data"
-				]
-			},
-			"delete": [""]
-		},
-		{
-			"name": "propertymaterial",
-			"unique": ["url"],
-			"update": {
-				"keys": [
-					"name",
-					"description",
-					"address",
-					"type",
-					"area",
-					"price",
-					"data"
-				]
-			},
-			"delete": [""]
-		},
-		{
-			"name": "propertyprovider",
-			"unique": ["url"],
-			"update": {
-				"keys": [
-					"name",
-					"description",
-					"address",
-					"type",
-					"area",
-					"price",
-					"data"
-				]
-			},
-			"delete": [""]
-		},
-		{
-			"name": "propertyservice",
 			"unique": ["url"],
 			"update": {
 				"keys": [
@@ -105,7 +108,7 @@
 			"delete": [""]
 		},
 		{
-			"name": "propertyworker",
+			"name": "propertytrade",
 			"unique": ["url"],
 			"update": {
 				"keys": [
@@ -121,18 +124,9 @@
 			"delete": [""]
 		},
 		{
-			"name": "propertytrade",
-			"unique": ["url"],
+			"name": "propertytradeproposal",
 			"update": {
-				"keys": [
-					"name",
-					"description",
-					"address",
-					"type",
-					"area",
-					"price",
-					"data"
-				]
+				"keys": ["units", "price", "workdays", "deadline"]
 			},
 			"delete": [""]
 		}
