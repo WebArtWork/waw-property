@@ -185,27 +185,42 @@ module.exports = async (waw) => {
 		}
 	});
 
-	router.post("/status", waw.ensure, async (req, res) => {
-		const job = await waw.Propertyjob.findOne(
-			req.body.status === "Paid"
-				? {
-						author: req.user._id,
-						_id: req.body.job,
-				  }
-				: {
-						_id: req.body.job,
-						worker: req.user._id,
-				  }
-		);
+	router.post(
+		"/status",
+		waw.ensure,
+		(req, res, next) => {
+			if (
+				req.body.status === "Invoiced" ||
+				req.body.status === "Paid" ||
+				req.body.status === "Completed"
+			) {
+				next();
+			} else {
+				res.json(false);
+			}
+		},
+		async (req, res) => {
+			const job = await waw.Propertyjob.findOne(
+				req.body.status === "Paid"
+					? {
+							author: req.user._id,
+							_id: req.body.job,
+					  }
+					: {
+							_id: req.body.job,
+							worker: req.user._id,
+					  }
+			);
 
-		if (job) {
-			job.status = req.body.status;
+			if (job) {
+				job.status = req.body.status;
 
-			await job.save();
+				await job.save();
 
-			res.json(true);
-		} else {
-			res.json(false);
+				res.json(true);
+			} else {
+				res.json(false);
+			}
 		}
-	});
+	);
 };
