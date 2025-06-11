@@ -9,7 +9,7 @@ module.exports = async function (waw) {
 				type: {
 					type: String,
 				},
-				use: {
+				quantity: {
 					type: Number,
 				},
 				price: {

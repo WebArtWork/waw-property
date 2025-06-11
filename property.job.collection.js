@@ -19,10 +19,18 @@ module.exports = async function (waw) {
 		},
 		units: [
 			{
-				name: String,
-				type: String,
-				quantity: Number,
-				price: Number,
+				name: {
+					type: String,
+				},
+				type: {
+					type: String,
+				},
+				quantity: {
+					type: Number,
+				},
+				price: {
+					type: Number,
+				},
 			},
 		],
 		price: Number,
