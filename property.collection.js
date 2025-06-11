@@ -137,7 +137,7 @@ module.exports = async function (waw) {
 		pricePerDay: Number,
 		pricePerMountly: Number,
 		pricePerPartial: Number,
-		thumb: String,
+		thumbs: [String],
 
 		url: { type: String, sparse: true, trim: true, unique: true },
 		data: {},
@@ -205,7 +205,7 @@ module.exports = async function (waw) {
 
 		this.pricePerPartial = obj.pricePerPartial;
 
-		this.thumb = obj.thumb;
+		this.thumbs = obj.thumbs;
 
 		this.data = obj.data;
 
