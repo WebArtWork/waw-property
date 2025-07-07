@@ -1,24 +1,27 @@
 module.exports = async function (waw) {
 	const Schema = waw.mongoose.Schema({
-		//?
-		//name: String,
-		//description: String,
-		//responsible: String,
-		//comments: String,
-
-
+		property: {
+			type: waw.mongoose.Schema.Types.ObjectId,
+			ref: "User",
+		},
 		type: {
 			type: String,
-			enum: [ 'Utility bill','Change owner', 'Service', 'Materials', 'Rent bill', 'Incident']
+			enum: [
+				"Utility bill",
+				"Rent bill",
+				"Incident",
+				"Job",
+				"Change owner",
+			],
 		},
+
 		price: Number,
 		materials: [String],
 		photos: [String],
 		service: String,
 		incident: String,
 		rent: String,
-		
-		
+
 		url: { type: String, sparse: true, trim: true, unique: true },
 		data: {},
 		author: {
@@ -43,12 +46,18 @@ module.exports = async function (waw) {
 	});
 
 	Schema.methods.create = function (obj, user, waw) {
+		this.property = obj.property;
+
+		this.type = obj.type;
+
+		// delete below
+
 		this.author = user._id;
 
 		this.seller = user._id;
 
 		this.buyer = user._id;
-		
+
 		this.moderators = [user._id];
 
 		//this.name = obj.name;
@@ -56,11 +65,8 @@ module.exports = async function (waw) {
 		//this.responsible = obj.responsible;
 		//this.comments = obj.comments;
 
-
-		this.type = obj.type;
-		
 		this.price = obj.price;
-		
+
 		this.materials = obj.materials;
 
 		this.photos = obj.photos;

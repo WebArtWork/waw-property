@@ -1,6 +1,6 @@
 {
 	"name": "Property",
-	"repo": "https://github.com/WebArtWork/waw-property.git",
+	"repoDisabled": "https://github.com/WebArtWork/waw-property.git",
 	"crud": [
 		{
 			"name": "property",
@@ -33,6 +33,14 @@
 					"data",
 					"thumbs"
 				]
+			},
+			"delete": [""]
+		},
+		{
+			"name": "propertyrecord",
+			"unique": ["url"],
+			"update": {
+				"keys": ["type", "address", "area", "price", "data"]
 			},
 			"delete": [""]
 		},
@@ -75,22 +83,6 @@
 			"get": ["", "public"],
 			"update": {
 				"keys": ["units", "price", "workdays", "start", "deadline"]
-			},
-			"delete": [""]
-		},
-		{
-			"name": "propertyrecord",
-			"unique": ["url"],
-			"update": {
-				"keys": [
-					"name",
-					"description",
-					"address",
-					"type",
-					"area",
-					"price",
-					"data"
-				]
 			},
 			"delete": [""]
 		},
