@@ -1,4 +1,5 @@
 module.exports = async (waw) => {
+	// crud config
 	const get = (addUser = false) => {
 		return {
 			query: (req) => {
